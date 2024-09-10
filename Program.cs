@@ -1,67 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_5
+namespace Lab_6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            string direction, sw, door;
+            Console.WriteLine("Welcome to Treasure Island.\nYour mission is to find the treasure.");
 
-            int bill = 0;
-
-
-
-
-            Console.WriteLine("Welcome to Python Pizza Deliveries!");
-
-            Console.Write("What size do you want? S, M, or L: ");
-            string size = Console.ReadLine();
-
-
-            Console.Write("Do you want pepperoni on your pizza? Y or N: ");
-            string pep = Console.ReadLine();
-
-            Console.Write("Do you want extra cheese? Y or N: ");
-            string cheese = Console.ReadLine();
-
-            //pizza size pricing
-
-            if (size.ToUpper() == "S")
+            Console.Write("Go left or right?: ");
+            direction = Console.ReadLine();
+            if (direction == "left")
             {
-                bill += 15;
-            }
-            else if (size.ToUpper() == "M")
-            {
-                bill += 20;
+                Console.Write("swim or wait?: ");
+                sw = Console.ReadLine();
+
+                if (sw == "swim")
+                {
+                    Console.Write("Which door? (red/blue/yellow): ");
+                    door = Console.ReadLine();
+
+                    if (door == "yellow")
+                    {
+                        Console.WriteLine("You Win!");
+                    }
+                    else if (door == "red")
+                    {
+                        Console.WriteLine("Burned by fire. Game over.");
+                    }
+                    else if (door == "blue")
+                    {
+                        Console.WriteLine("Eaten by beast. Game over.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Born losers. Game over.");
+                    }
+                }
+                else
+                {
+                    Console.Write("Attack by trout!");
+                }
             }
             else
             {
-                bill += 25;
+                Console.Write("Fall into a hole. Game over.");
             }
-
-
-
-            //compute total bill
-
-
-            if (pep.ToUpper() == "Y")
-            {
-                bill += 2;
-            }
-
-            if (cheese.ToUpper() == "Y")
-            {
-                bill += 1;
-            }
-
-
-            Console.Write($"Your final bill is: {bill}");
-            bill = int.Parse(Console.ReadLine());
- 
         }
     }
 }
