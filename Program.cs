@@ -1,57 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_6
+namespace Lab8
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string direction, sw, door;
-            Console.WriteLine("Welcome to Treasure Island.\nYour mission is to find the treasure.");
+            int speed;
+            int speedlimit = 5;
+            int demeritpts = 0;
 
-            Console.Write("Go left or right?: ");
-            direction = Console.ReadLine();
-            if (direction == "left")
+            Console.WriteLine("The speed limit is 5km/hr");
+
+            Console.Write("What is the speed of the car in km/hr: ");
+            speed = int.Parse(Console.ReadLine());
+
+            if (speed >= speedlimit)
             {
-                Console.Write("swim or wait?: ");
-                sw = Console.ReadLine();
+                demeritpts = speed / speedlimit;
 
-                if (sw == "swim")
+                if (demeritpts > 12)
                 {
-                    Console.Write("Which door? (red/blue/yellow): ");
-                    door = Console.ReadLine();
-
-                    if (door == "yellow")
-                    {
-                        Console.WriteLine("You Win!");
-                    }
-                    else if (door == "red")
-                    {
-                        Console.WriteLine("Burned by fire. Game over.");
-                    }
-                    else if (door == "blue")
-                    {
-                        Console.WriteLine("Eaten by beast. Game over.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Born losers. Game over.");
-                    }
+                    Console.WriteLine("License is suspended.");
                 }
                 else
                 {
-                    Console.Write("Attack by trout!");
+                    Console.WriteLine("Your number of demerit points is: " + demeritpts);
                 }
             }
             else
             {
-                Console.Write("Fall into a hole. Game over.");
+                Console.WriteLine("Speed is OK.");
             }
         }
     }
 }
+
+
+
