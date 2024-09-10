@@ -1,1 +1,1 @@
-This is a lab exercise wherein we were tasked to make a "Python Pizza Calculator" using C# Programming language.
+This is a lab exercise wherein we were tasked to make various running programs using C# Programming language.
